@@ -10,7 +10,7 @@ This application is supposed to run inside the Docker container. Please make sur
 ```bash
 $ scripts/up-test
 ```
-Tests are ran against the real ScyllaDB database inside a separate Docket container.
+Tests are ran against the real ScyllaDB database inside a separate Docket container. After tests are passed please exit the docker container (ctrl+c).
 
 You can learn how to use this API by looking into `test/app.e2e-spec.ts`
 
