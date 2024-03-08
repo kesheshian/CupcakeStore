@@ -8,7 +8,7 @@ This application is supposed to run inside the Docker container. Please make sur
 
 ## Running the integration tests
 ```bash
-$ scripts/up-test
+$ ./scripts/up-test
 ```
 Tests are ran against the real ScyllaDB database inside a separate Docket container. After tests are passed please exit the docker container (ctrl+c).
 
@@ -16,10 +16,10 @@ You can learn how to use this API by looking into `test/app.e2e-spec.ts`
 
 ## Running the server
 ```
-$ scripts/up
+$ ./scripts/up
 ```
-> **_NOTE:_**  After running the `scripts/up` or `scripts/up-test` you may see **'ScyllaDB is unavailable - retrying in 5 seconds'** comming up several times. The application is waiting for the Scylla container to spin up Scylla cluster and it may take up to 1 minute. 
-If this process takes more then 2 minutes you may want to try stopping the container (ctrl + c), run the `scripts/down` and than run `scripts/up-test` or `scripts/up` again. Alternatively you can delete all the containers and try again.
+> **_NOTE:_**  After running the `./scripts/up` or `./scripts/up-test` you may see **'ScyllaDB is unavailable - retrying in 5 seconds'** comming up several times. The application is waiting for the Scylla container to spin up Scylla cluster and it may take up to 1 minute. 
+If this process takes more then 2 minutes you may want to try stopping the container (ctrl + c), run the `./scripts/down` and than run `./scripts/up-test` or `./scripts/up` again. Alternatively you can delete all the containers and try again.
 
 ## Using Rest client
 When the service is up and running you can access it by `https://localhost:3000/v2/cupcake`. This endpoint returns the list of all cupcakes and it should be empty on the first run ([]).
