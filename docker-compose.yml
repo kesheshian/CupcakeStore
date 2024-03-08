@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  app:
+    container_name: cupcakestore-app
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - SCYLLADB_HOST=scylladb
+    depends_on:
+      - scylladb
+    command: ["sh", "-c", "/wait-for-scylla.sh scylladb && npm start"]
+
+  scylladb:
+    container_name: cupcakestore-scylladb
+    image: scylladb/scylla
+    ports:
+      - "9042:9042"
+    environment:
+      SCYLLA_CLUSTER_NAME: app_cluster
+

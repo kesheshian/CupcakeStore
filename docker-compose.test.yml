@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  scylladb_test:
+    image: scylladb/scylla
+    ports:
+      - "9043:9042"
+    environment:
+      SCYLLA_CLUSTER_NAME: test_cluster
+
+  app_test:
+    build: .
+    depends_on:
+      - scylladb_test
+    environment:
+      SCYLLADB_HOST: scylladb_test
+    command: ["sh", "-c", "/wait-for-scylla.sh scylladb_test && npm run test:e2e"]
